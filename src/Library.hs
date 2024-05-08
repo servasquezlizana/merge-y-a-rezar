@@ -6,7 +6,7 @@ data Ciudad = Ciudad {
     añoFundacion :: Number,
     atracciones :: [String],
     costoDeVida :: Number
-} deriving (Show)
+} deriving (Show, Eq)
 
 -- Punto 1: Valor de una ciudad (común para todos los integrantes)
 
@@ -26,6 +26,10 @@ sobriaCiudad :: Ciudad -> Number -> Bool
 sobriaCiudad (Ciudad _ _ latracciones _) valorAjustable | length latracciones == 0 = False
                                                         | filter ((> valorAjustable).length) latracciones == latracciones = True
                                                         | otherwise = False
+
+-- Integrante 3: Ciudad con nombre raro
+ciudadNombreRaro :: Ciudad -> Bool
+ciudadNombreRaro (Ciudad nombre _ _ _) = ((<5).length) nombre 
 
 
 --Estimo que este punto se debe hacer con orden superior. El miercoles que viene lo veremos

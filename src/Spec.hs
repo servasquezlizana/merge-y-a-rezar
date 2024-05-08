@@ -21,6 +21,12 @@ correrTests = hspec $ do
     it "Valor de la ciudad Caleta Olivia, fundada en 1901, cuyas atracciones son El Gorosito y Faro Costanera, y un costo de vida de 120" $ do
       sobriaCiudad (Ciudad "Caleta Olivia" 1901 [] 120) 5 `shouldBe` False
 
+  describe "Test Integrante 3: Ciudad con nombre raro" $ do
+    it "Test para la ciudad Maipu, fundada en 1878, cuya atraccion es el Fortin Kakel, con un costo de vida de 115" $ do
+      ciudadNombreRaro (Ciudad "Maipu" 1878 ["Fortin Kakel"] 115) `shouldBe` False
+    it "Test para la ciudad Azul, fundada en 1832, cuyas atracciones son Teatro Español, Parque Municipal Sarmiento y Costanera Cacique Catriel, con un costo de vida de 190" $ do
+      ciudadNombreRaro (Ciudad "Azul" 1832 ["Teatro Español", "Parque Municipal Sarmiento", "Costanera Cacique Catriel"] 190) `shouldBe` True
+      
   describe "Test grupal 2: agregar nueva atraccion " $ do
     it "Valor de la ciudad Baradero, fundada en 1615, cuyas atracciones son Parque del Este y Museo Alejandro Barbich, con un costo de vida de 150" $ do
       sumarAtraccion (Ciudad "Baradero" 1615 ["Parque del Este", "Museo Alejandro Barbich"] 150) ["Roma"] `shouldBe` (Ciudad "Baradero" 1615 ["Parque del Este", "Museo Alejandro Barbich", "Roma"] 180)
